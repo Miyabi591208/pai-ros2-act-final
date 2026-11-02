@@ -1,0 +1,19 @@
+{
+  "original_sha256": "76008a1bab335594b3590138a4030221f862228c59c68819f0c8158fbe9a482b",
+  "redacted_sha256": "07d777482377375abeb4a2a6d38c480d9068e0a1a9ca1ab1cbdd88ab1132a3ad",
+  "removed_fields": [
+    "cells/0/metadata/executionInfo",
+    "cells/1/metadata/executionInfo",
+    "cells/2/metadata/executionInfo",
+    "cells/3/metadata/executionInfo",
+    "cells/4/metadata/executionInfo",
+    "cells/5/metadata/executionInfo",
+    "cells/6/metadata/executionInfo",
+    "cells/7/metadata/executionInfo",
+    "cells/8/metadata/executionInfo",
+    "cells/9/metadata/executionInfo",
+    "cells/10/metadata/executionInfo",
+    "metadata/colab/authorship_tag"
+  ],
+  "note": "Only execution/user metadata removed; code and outputs unchanged."
+}

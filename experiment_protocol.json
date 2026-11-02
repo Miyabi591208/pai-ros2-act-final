@@ -1,0 +1,130 @@
+{
+  "status": "registered_before_training",
+  "date_jst": "2026-11-03",
+  "lesson_url": "https://skinny-chord-c58.notion.site/5-ROS-2-2-2-2049a7a1061380fc8928e500eafc57d0",
+  "task": "CRANE+ V2 bow: zero arm posture to joint3=0.60 rad, other arm joints=0, gripper=-0.5236",
+  "scope": "New experiment separate from already submitted MuJoCo delivery project",
+  "compute": "Google Colab T4, existing subscription; no additional purchases",
+  "source_commits": {
+    "matsuolab/pai_training": "b4d6b5459066a80433475a83567504988875248a",
+    "huggingface/lerobot": "768e36660d1408c71118a2760f831c037fbfa17d",
+    "matsuolab/physicalai_teleop": "0ef2a00fd6d7bb39377969d10f3d26268e447fd9",
+    "AI-Robot-Book-Humble/crane_plus": "19c1d6069126cd27488bf1bbefd410704bfc515d"
+  },
+  "demonstrations": {
+    "provenance": "Scripted replay of published 0.05-rad keyboard commands, recorded from Gazebo joint feedback; not human demonstrations",
+    "base_episode_count": 20,
+    "expanded_episode_count": 80,
+    "base_seeds": [
+      0,
+      19
+    ],
+    "expansion_seeds": [
+      20,
+      79
+    ],
+    "quality_gate": "finite observations, complete joint names, strictly increasing timestamps, target reached, valid limits; rejected episodes logged"
+  },
+  "split_unit": "whole episode / scene, never random frames",
+  "validation": {
+    "seeds": [
+      1000,
+      1019
+    ],
+    "arm_initial_uniform_radians": [
+      -0.08,
+      0.08
+    ]
+  },
+  "test": {
+    "seeds": [
+      2000,
+      2049
+    ],
+    "arm_initial_uniform_radians": [
+      -0.08,
+      0.08
+    ],
+    "access": "one final evaluation after model selection; no tuning on test"
+  },
+  "success": "all 5 joint errors <=0.05 rad and max joint speed <=0.10 rad/s continuously for 0.5 simulation seconds, within 8 seconds",
+  "metrics": [
+    "success_count",
+    "terminal_joint_rmse_rad",
+    "completion_sim_seconds",
+    "executed_joint_jerk_rms",
+    "command_limit_violations",
+    "inference_latency_ms"
+  ],
+  "selection": "validation success first, terminal RMSE second; report latency and smoothness separately, do not hide failed runs",
+  "planned_trials": [
+    {
+      "name": "lesson_baseline",
+      "steps": 200,
+      "batch_size": 2,
+      "learning_rate": 0.0001,
+      "chunk_size": 16,
+      "n_action_steps": 1,
+      "action_time_start": -0.1,
+      "action_time_interval": 0.1,
+      "training_episodes": 20
+    },
+    {
+      "name": "aligned_200",
+      "steps": 200,
+      "batch_size": 2,
+      "action_time_start": 0.0,
+      "action_time_interval": 0.05,
+      "training_episodes": 20
+    },
+    {
+      "name": "aligned_2000",
+      "steps": 2000,
+      "batch_size": 16,
+      "training_episodes": 20
+    },
+    {
+      "name": "diverse_2000",
+      "steps": 2000,
+      "batch_size": 16,
+      "training_episodes": 80
+    },
+    {
+      "name": "best_checkpoint_execution",
+      "n_action_steps_candidates": [
+        1,
+        4,
+        8
+      ],
+      "temporal_ensemble_candidates": [
+        null,
+        0.01
+      ]
+    }
+  ],
+  "reproducibility": "save seed, source hashes, dependency versions, checkpoints, per-episode traces, errors and wall time",
+  "claim_limit": "Best among tested configurations under this protocol, never a claim of global optimum. Gazebo reproduction and offline diagnostics are reported separately.",
+  "stopping_rule": "Finish planned comparisons and validation selection; add further trials only for a recorded hypothesis. Preserve final holdout; if new development follows test disclosure, create a new untouched test split.",
+  "pre_training_amendments": [
+    {
+      "time_jst": "2026-11-03T01:38:29.477169+09:00",
+      "reason": "Verify feasibility and show the limitation of a single fixed-target task",
+      "addition": "Validation-only known-target controller reference, excluded from learned-model selection."
+    },
+    {
+      "time_jst": "2026-11-03T01:38:29.477226+09:00",
+      "reason": "No human demonstration bags supplied; reproducible simulated collection",
+      "addition": "Use actual Gazebo feedback JSON with an in-memory adapter reproducing lesson configuration and conversion conventions, not a byte-identical LeRobot bag conversion; report explicitly."
+    },
+    {
+      "time_jst": "2026-11-03T01:39:26.534411+09:00",
+      "reason": "Separate joint-order and time-target hypotheses instead of crediting a bundled fix to one cause",
+      "addition": "Two 200-step batch-2 ablations: order_only_200 retains original timing and padding; time_only_200 retains original joint order and padding. Both evaluated on validation, eligible for model selection."
+    },
+    {
+      "time_jst": "2026-11-03T01:50:05.727834+09:00",
+      "reason": "Actual Gazebo probe seed 9999 gives raw order [joint1,joint2,joint4,joint3,hand], matching upstream inference",
+      "addition": "Joint-order mismatch hypothesis rejected for this runtime. Retain canonical-order audit trial but never label it a demonstrated bug fix. Adaptive reset must reach <0.005 rad error and low motion for 0.3 seconds, timeout 5 seconds, shared by every method."
+    }
+  ]
+}

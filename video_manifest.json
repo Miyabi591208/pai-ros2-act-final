@@ -1,0 +1,23 @@
+{
+  "title": "ROS 2とACTで、学習と実行をつなぐ",
+  "id": "141960",
+  "frames": 2558,
+  "seconds": 85.26,
+  "audio": "none; supplied OP/ED silent",
+  "core_seconds": 80,
+  "core_chapter_start_seconds": [
+    0,
+    12,
+    29,
+    47,
+    62
+  ],
+  "replay": "Measured test seed 4000, published URDF forward kinematics, schematic replay; no new simulator measurements",
+  "composition": {
+    "fade_seconds": 0.4,
+    "op_seconds": 3.066666666666667,
+    "ed_seconds": 3.0,
+    "expected_seconds": 85.26666666666667
+  },
+  "sha256": "35bce00ec16f131f17d52016090949dd1d5b4bf36f717bec4c4dbc6953fde27e"
+}

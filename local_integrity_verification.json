@@ -1,0 +1,15 @@
+{
+  "manifest_files_verified": 312,
+  "evaluation_episodes_verified": 160,
+  "teacher_episodes_verified": 80,
+  "verifier_sha256": "22727695ceebcc452004caf50ce79c6a522164ae01b7318d20b8c44cf407324e",
+  "training_data_and_code_hashes": "passed",
+  "evaluation_code_hashes": "passed",
+  "evaluated_checkpoint_hashes": "passed",
+  "aggregate_metrics_recomputed": "passed",
+  "technical_errors": 0,
+  "disjoint_split_check": "passed",
+  "success_reconstruction": "passed",
+  "selected_checkpoint_hash": "passed",
+  "max_paired_initial_difference_rad": 0.00041454751044511795
+}

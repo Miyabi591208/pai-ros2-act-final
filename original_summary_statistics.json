@@ -1,0 +1,17 @@
+{
+  "baseline_successes": 25,
+  "selected_successes": 50,
+  "n": 50,
+  "baseline_wilson95": [
+    0.3664451431682858,
+    0.6335548568317142
+  ],
+  "selected_wilson95": [
+    0.9286524008666414,
+    1.0
+  ],
+  "paired_gains": 25,
+  "paired_regressions": 0,
+  "mcnemar_exact_two_sided_p": 5.960464477539063e-08,
+  "provenance": "Derived from preserved notebook summary; all selected trials succeeded, so paired gains follow from totals. Original episode-level files unavailable."
+}

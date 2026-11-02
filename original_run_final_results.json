@@ -1,0 +1,165 @@
+{
+  "validation": [
+    {
+      "name": "val_lesson_baseline",
+      "trial": "lesson_baseline",
+      "n_action_steps": 1,
+      "ensemble": null,
+      "n": 20,
+      "successes": 12,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.020532520850612884,
+      "jerk_rms_mean": 4.269065100030073,
+      "limit_interventions": 0,
+      "latency_ms_mean": 13.814827013752023
+    },
+    {
+      "name": "val_order_only_200",
+      "trial": "order_only_200",
+      "n_action_steps": 1,
+      "ensemble": null,
+      "n": 20,
+      "successes": 19,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.021255528952153237,
+      "jerk_rms_mean": 3.0470416434497563,
+      "limit_interventions": 0,
+      "latency_ms_mean": 14.240767836847706
+    },
+    {
+      "name": "val_time_only_200",
+      "trial": "time_only_200",
+      "n_action_steps": 1,
+      "ensemble": null,
+      "n": 20,
+      "successes": 13,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.009779612525750521,
+      "jerk_rms_mean": 4.281357837526636,
+      "limit_interventions": 0,
+      "latency_ms_mean": 15.078091216775084
+    },
+    {
+      "name": "val_aligned_200",
+      "trial": "aligned_200",
+      "n_action_steps": 1,
+      "ensemble": null,
+      "n": 20,
+      "successes": 8,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.024916801343915048,
+      "jerk_rms_mean": 2.956547790270677,
+      "limit_interventions": 0,
+      "latency_ms_mean": 14.694791084436579
+    },
+    {
+      "name": "val_aligned_2000",
+      "trial": "aligned_2000",
+      "n_action_steps": 1,
+      "ensemble": null,
+      "n": 20,
+      "successes": 10,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.12112996785241752,
+      "jerk_rms_mean": 2.4915932624109383,
+      "limit_interventions": 0,
+      "latency_ms_mean": 13.766765608359492
+    },
+    {
+      "name": "val_diverse_2000",
+      "trial": "diverse_2000",
+      "n_action_steps": 1,
+      "ensemble": null,
+      "n": 20,
+      "successes": 20,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.004912693176055122,
+      "jerk_rms_mean": 2.4386570407901664,
+      "limit_interventions": 0,
+      "latency_ms_mean": 13.658260940565047
+    },
+    {
+      "name": "val_execution_n4_ensembleNone",
+      "trial": "diverse_2000",
+      "n_action_steps": 4,
+      "ensemble": null,
+      "n": 20,
+      "successes": 20,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.0047875908781267636,
+      "jerk_rms_mean": 3.2898265395007424,
+      "limit_interventions": 0,
+      "latency_ms_mean": 6.570520588202969
+    },
+    {
+      "name": "val_execution_n8_ensembleNone",
+      "trial": "diverse_2000",
+      "n_action_steps": 8,
+      "ensemble": null,
+      "n": 20,
+      "successes": 20,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.004560912313930988,
+      "jerk_rms_mean": 3.0051452171243955,
+      "limit_interventions": 0,
+      "latency_ms_mean": 5.510499450566331
+    },
+    {
+      "name": "val_execution_n1_ensemble0.01",
+      "trial": "diverse_2000",
+      "n_action_steps": 1,
+      "ensemble": 0.01,
+      "n": 20,
+      "successes": 20,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.004410537477920638,
+      "jerk_rms_mean": 2.627868539352085,
+      "limit_interventions": 0,
+      "latency_ms_mean": 14.142837933323463
+    }
+  ],
+  "selection": {
+    "trial": "diverse_2000",
+    "n_action_steps": 1,
+    "ensemble": 0.01
+  },
+  "test": [
+    {
+      "name": "test_baseline",
+      "trial": "lesson_baseline",
+      "n_action_steps": 1,
+      "ensemble": null,
+      "n": 50,
+      "successes": 25,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.020929609284336896,
+      "jerk_rms_mean": 2.7073230080121014,
+      "limit_interventions": 0,
+      "latency_ms_mean": 13.459248474417427
+    },
+    {
+      "name": "test_selected",
+      "trial": "diverse_2000",
+      "n_action_steps": 1,
+      "ensemble": 0.01,
+      "n": 50,
+      "successes": 50,
+      "technical_errors": 0,
+      "terminal_rmse_mean": 0.004578955014129595,
+      "jerk_rms_mean": 2.482310677571327,
+      "limit_interventions": 0,
+      "latency_ms_mean": 13.75600627745584
+    }
+  ],
+  "task_specific_oracle_validation": {
+    "name": "val_task_specific_oracle",
+    "oracle": true,
+    "n": 20,
+    "successes": 20,
+    "technical_errors": 0,
+    "terminal_rmse_mean": 0.007772280162069352,
+    "jerk_rms_mean": 3.040846626930882,
+    "limit_interventions": 0,
+    "latency_ms_mean": 0.0
+  }
+}
